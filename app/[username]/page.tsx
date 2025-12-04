@@ -95,43 +95,43 @@ export default function UserProfile() {
   const isOwnProfile = currentUser?.username === username;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-3 md:px-4 py-4 md:py-8">
       {/* Profile Header */}
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden mb-6">
+      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden mb-4 md:mb-6">
         {/* Cover Image Placeholder */}
-        <div className="h-32 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500"></div>
+        <div className="h-24 md:h-32 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500"></div>
         
-        <div className="px-8 pb-8">
+        <div className="px-4 md:px-8 pb-6 md:pb-8">
           {/* Avatar - Overlapping cover */}
-          <div className="-mt-12 mb-4">
+          <div className="-mt-10 md:-mt-12 mb-3 md:mb-4">
             {user.avatar ? (
               <img
                 src={user.avatar}
                 alt={user.name}
-                className="w-24 h-24 rounded-full border-4 border-white"
+                className="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-white"
               />
             ) : (
-              <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-3xl font-bold border-4 border-white">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-300 flex items-center justify-center text-2xl md:text-3xl font-bold border-4 border-white">
                 {user.name[0].toUpperCase()}
               </div>
             )}
           </div>
 
           {/* User Info */}
-          <div className="flex items-start justify-between mb-4">
+          <div className="flex flex-col sm:flex-row items-start justify-between gap-3 md:gap-4 mb-4">
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 mb-1">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
                 {user.name}
               </h1>
-              <p className="text-gray-600 mb-3">@{user.username}</p>
+              <p className="text-sm md:text-base text-gray-600 mb-2 md:mb-3">@{user.username}</p>
               {user.bio && (
-                <p className="text-gray-700 mb-4 max-w-2xl">{user.bio}</p>
+                <p className="text-sm md:text-base text-gray-700 mb-3 md:mb-4 max-w-2xl">{user.bio}</p>
               )}
             </div>
             {isOwnProfile && (
               <Link
                 href="/settings"
-                className="px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 transition-colors"
+                className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 transition-colors text-center"
               >
                 Edit Profile
               </Link>
@@ -139,7 +139,7 @@ export default function UserProfile() {
           </div>
 
           {/* Stats Bar */}
-          <div className="flex items-center gap-6 text-sm border-t border-gray-200 pt-4">
+          <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm border-t border-gray-200 pt-3 md:pt-4">
             <div>
               <span className="font-semibold text-gray-900">{posts.length}</span>
               <span className="text-gray-600 ml-1">{posts.length === 1 ? 'Post' : 'Posts'}</span>
@@ -148,7 +148,7 @@ export default function UserProfile() {
               <span className="font-semibold text-gray-900">
                 {posts.reduce((sum, post) => sum + post.likes.length, 0)}
               </span>
-              <span className="text-gray-600 ml-1">Likes Received</span>
+              <span className="text-gray-600 ml-1">Likes</span>
             </div>
             <div>
               <span className="text-gray-600">

@@ -38,37 +38,47 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex justify-between items-center h-14 md:h-16">
           {/* Logo */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <div className="bg-black text-white font-bold text-xl px-2 py-1 rounded">
+              <div className="bg-black text-white font-bold text-lg md:text-xl px-2 py-1 rounded">
                 DEV
               </div>
             </Link>
 
-            {/* Search */}
-            <form onSubmit={handleSearch} className="hidden md:block">
+            {/* Search - Desktop only */}
+            <form onSubmit={handleSearch} className="hidden lg:block">
               <input
                 type="text"
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-96 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-64 xl:w-96 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               />
             </form>
           </div>
 
           {/* Right side */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 md:gap-3">
             {user ? (
               <>
                 <Link
                   href="/new"
-                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+                  className="hidden sm:block px-3 md:px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
                 >
                   Create Post
+                </Link>
+                {/* Mobile: Show just icon for create post */}
+                <Link
+                  href="/new"
+                  className="sm:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+                  title="Create Post"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  </svg>
                 </Link>
                 <div className="relative group">
                   <button className="flex items-center gap-2 hover:bg-gray-100 rounded-full p-1 transition-colors">
@@ -160,15 +170,16 @@ export default function Navbar() {
               <>
                 <Link
                   href="/login"
-                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+                  className="px-3 md:px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
                 >
                   Log in
                 </Link>
                 <Link
                   href="/register"
-                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
+                  className="px-3 md:px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors whitespace-nowrap"
                 >
-                  Create account
+                  <span className="hidden sm:inline">Create account</span>
+                  <span className="sm:hidden">Sign up</span>
                 </Link>
               </>
             )}

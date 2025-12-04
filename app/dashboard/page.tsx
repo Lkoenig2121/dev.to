@@ -88,37 +88,37 @@ export default function Dashboard() {
   const totalViews = posts.length * 42; // Mock data
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="flex items-center justify-between mb-8">
+    <div className="max-w-7xl mx-auto px-3 md:px-4 py-4 md:py-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 md:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
-          <p className="text-gray-600">Manage your posts and view your stats</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 md:mb-2">Dashboard</h1>
+          <p className="text-sm md:text-base text-gray-600">Manage your posts and view your stats</p>
         </div>
         <Link
           href="/new"
-          className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium"
+          className="w-full sm:w-auto px-4 md:px-6 py-2 md:py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium text-center text-sm md:text-base"
         >
           Create Post
         </Link>
       </div>
 
       {/* Stats Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <div className="text-sm text-gray-600 mb-1">Total Posts</div>
-          <div className="text-3xl font-bold text-gray-900">{posts.length}</div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
+        <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+          <div className="text-xs md:text-sm text-gray-600 mb-1">Total Posts</div>
+          <div className="text-2xl md:text-3xl font-bold text-gray-900">{posts.length}</div>
         </div>
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <div className="text-sm text-gray-600 mb-1">Published</div>
-          <div className="text-3xl font-bold text-green-600">{publishedPosts.length}</div>
+        <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+          <div className="text-xs md:text-sm text-gray-600 mb-1">Published</div>
+          <div className="text-2xl md:text-3xl font-bold text-green-600">{publishedPosts.length}</div>
         </div>
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <div className="text-sm text-gray-600 mb-1">Total Likes</div>
-          <div className="text-3xl font-bold text-red-600">{totalLikes}</div>
+        <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+          <div className="text-xs md:text-sm text-gray-600 mb-1">Total Likes</div>
+          <div className="text-2xl md:text-3xl font-bold text-red-600">{totalLikes}</div>
         </div>
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <div className="text-sm text-gray-600 mb-1">Total Views</div>
-          <div className="text-3xl font-bold text-blue-600">{totalViews}</div>
+        <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+          <div className="text-xs md:text-sm text-gray-600 mb-1">Total Views</div>
+          <div className="text-2xl md:text-3xl font-bold text-blue-600">{totalViews}</div>
         </div>
       </div>
 

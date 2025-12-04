@@ -27,18 +27,20 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="flex gap-6">
-        {/* Sidebar */}
-        <Sidebar />
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+        {/* Sidebar - Hidden on mobile */}
+        <div className="hidden lg:block">
+          <Sidebar />
+        </div>
 
         {/* Main content */}
-        <main className="flex-1 max-w-3xl">
-          <div className="mb-6">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <main className="flex-1 w-full lg:max-w-3xl">
+          <div className="mb-4 md:mb-6">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               Welcome to DEV Community
             </h1>
-            <p className="text-gray-600">
+            <p className="text-sm md:text-base text-gray-600">
               A constructive and inclusive social network for software developers
             </p>
           </div>

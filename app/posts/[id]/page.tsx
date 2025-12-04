@@ -119,18 +119,18 @@ export default function PostPage() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <article className="bg-white rounded-lg border border-gray-200 overflow-hidden mb-6">
+    <div className="max-w-4xl mx-auto px-3 md:px-4 py-4 md:py-8">
+      <article className="bg-white rounded-lg border border-gray-200 overflow-hidden mb-4 md:mb-6">
         {/* Cover Image */}
         {post.coverImage && (
           <img
             src={post.coverImage}
             alt={post.title}
-            className="w-full h-80 object-cover"
+            className="w-full h-48 md:h-80 object-cover"
           />
         )}
 
-        <div className="p-8">
+        <div className="p-4 md:p-8">
           {/* Author Info */}
           <div className="flex items-center gap-3 mb-6">
             <Link href={`/${post.author?.username || 'unknown'}`}>
@@ -160,7 +160,7 @@ export default function PostPage() {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
             {post.title}
           </h1>
 

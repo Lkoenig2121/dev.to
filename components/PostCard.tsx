@@ -16,12 +16,12 @@ export default function PostCard({ post }: PostCardProps) {
           <img
             src={post.coverImage}
             alt={post.title}
-            className="w-full h-48 object-cover"
+            className="w-full h-40 md:h-48 object-cover"
           />
         </Link>
       )}
 
-      <div className="p-5">
+      <div className="p-4 md:p-5">
         {/* Author info */}
         <div className="flex items-center gap-2 mb-3">
           <Link href={`/${post.author?.username || 'unknown'}`}>
@@ -52,11 +52,11 @@ export default function PostCard({ post }: PostCardProps) {
 
         {/* Title and excerpt */}
         <Link href={`/posts/${post._id}`} className="block mb-3">
-          <h2 className="text-2xl font-bold text-gray-900 hover:text-blue-600 mb-2">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900 hover:text-blue-600 mb-2">
             {post.title}
           </h2>
           {post.excerpt && (
-            <p className="text-gray-600 line-clamp-2">{post.excerpt}</p>
+            <p className="text-sm md:text-base text-gray-600 line-clamp-2">{post.excerpt}</p>
           )}
         </Link>
 
